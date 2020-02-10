@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Text from "./Text";
 import axios from "axios";
+import ListText from "./ListText";
 
 // class component // statefull component thao tac du lieu phuc tap
 class Header extends Component {
@@ -9,7 +10,7 @@ class Header extends Component {
     this.state = {
       data: [],
       errorData: "",
-      isLoading: true,
+      isLoading: false,
       isTrue: true,
       name: "le hoang dai",
       listName: [
@@ -34,22 +35,22 @@ class Header extends Component {
     // http request method get post patch delete
     // promise
     // https://jsonplaceholder.typicode.com/users => api duoc viet qua backend bang php, java, nodejs, python,...
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then(res => {
-        console.log(res);
-        this.setState({
-          data: res.data,
-          isLoading: false
-        });
-      })
-      .catch(err => {
-        console.log(err);
-        this.setState({
-          errorData: "da co loi",
-          isLoading: false
-        });
-      }); // doi cho den khi axios/ request tra ve du lieu thi lam gi do
+    // axios
+    //   .get("https://jsonplaceholder.typicode.com/posts")
+    //   .then(res => {
+    //     console.log(res);
+    //     this.setState({
+    //       data: res.data,
+    //       isLoading: false
+    //     });
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //     this.setState({
+    //       errorData: "da co loi",
+    //       isLoading: false
+    //     });
+    //   }); // doi cho den khi axios/ request tra ve du lieu thi lam gi do
   }
   renderText1 = () => {
     if (this.state.isLoading) {
@@ -89,6 +90,8 @@ class Header extends Component {
         {//  map chi dung voi array / voi i là index, e dai dien cho tung phan tu trong mang duoc loop qua/ phai return
         this.renderText1()}
         <div>{this.state.errorData !== "" && this.state.errorData}</div>
+
+        <ListText name={this.state.name} />
       </div>
     );
   }
