@@ -12,12 +12,13 @@ class Home extends Component {
   handleOnClick = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
+
   render() {
     return (
       <div className="container">
         <button
           type="button"
-          class="btn btn-primary"
+          className="btn btn-primary"
           onClick={() => this.handleOnClick()}
         >
           Hiển thị div
