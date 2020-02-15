@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Text from "./Text";
+import { scryRenderedComponentsWithType } from "react-dom/test-utils";
 
 class ListText extends Component {
   render() {
@@ -13,3 +14,8 @@ class ListText extends Component {
 }
 
 export default ListText;
+
+
+// react => lib thu vien khong phai framework nhu angular vue
+
+// REDUX
